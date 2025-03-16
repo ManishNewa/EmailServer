@@ -4,6 +4,6 @@ import EmailController from '../controllers/email.controller.js';
 
 const router = express.Router();
 
-router.post('/sendEmail', verifyToken, EmailController.sendEmail)
+router.post('/sendEmail', verifyToken, EmailController.sendEmail);
 
-export default router
+export default router;
