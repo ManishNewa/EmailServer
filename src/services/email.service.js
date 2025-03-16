@@ -1,5 +1,5 @@
-import EmailConfig from '../config/email';
-import { emailTemplate } from '../utils/email-templates';
+import EmailConfig from '../config/email.js';
+import { emailTemplate } from '../utils/email-templates.js';
 
 
 class EmailService {
