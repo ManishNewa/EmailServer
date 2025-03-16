@@ -14,13 +14,13 @@ class EmailService {
     }
 
     // Method to replace placeholders in the email template
-    replaceTemplatePlaceholders(data) {
+    replaceTemplatePlaceholders({ appName, emailBody }) {
         let emailContent = this.emailTemplate;
 
-        emailContent = emailContent.replace('{{APP_NAME}}', data.appName);
+        emailContent = emailContent.replace('{{APP_NAME}}', appName);
 
-        if (data.emailBody) {
-            emailContent = emailContent.replace('{{emailBody}}', data.emailBody);
+        if (emailBody) {
+            emailContent = emailContent.replace('{{emailBody}}', emailBody);
         } else {
             throw new Error('Email body is required.');
         }
@@ -29,10 +29,10 @@ class EmailService {
     }
 
     // Method to send an email
-    async sendEmail({ to, subject, emailBody }) {
+    async sendEmail({ to, subject, emailBody, appName }) {
         try {
             // Replace placeholders in the template
-            const emailContent = this.replaceTemplatePlaceholders({ emailBody });
+            const emailContent = this.replaceTemplatePlaceholders({ emailBody, appName });
 
             // Set up email options
             const mailOptions = {
