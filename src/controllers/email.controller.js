@@ -1,11 +1,13 @@
 import EmailService from "../services/email.service.js";
 
+const emailService = new EmailService();
+
 class EmailController {
     async sendEmail(req, res) {
         try {
             const { appName, email, subject, emailBody } = req.body;
 
-            await EmailService.sendEmail({
+            await emailService.sendEmail({
                 to: email,
                 subject,
                 emailBody,
