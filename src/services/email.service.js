@@ -42,10 +42,7 @@ class EmailService {
                 html: emailContent,
             };
 
-            // Send email
-            const info = await EmailConfig.sendEmail(mailOptions);
-            console.log('Email sent: ' + info.response);
-            return info;
+            return await EmailConfig.sendEmail(mailOptions);
         } catch (error) {
             throw new Error(
                 `Failed to send email to ${to}: ${error instanceof Error ? error.message : error}`,
