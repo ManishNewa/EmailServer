@@ -8,6 +8,6 @@ const PORT = process.env.PORT || 3000;
 
 app.listen(PORT, () => {
     console.log(
-        `Server is running on ${(env === 'development' ? ' http://localhost:' : '') + PORT}`
+        `Server is running on ${(env === 'development' ? process.env.API_URL : '') + ':' + PORT}`
     );
 });
